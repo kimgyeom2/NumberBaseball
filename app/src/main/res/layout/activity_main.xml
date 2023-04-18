@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@drawable/base">
+    <TextView
+        android:id="@+id/start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="숫자야구 게임"
+        android:textSize="45sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/kmi_bold"
+        android:layout_marginTop="15dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginLeft="10dp">
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/glove"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/et2"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/glove"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/et3"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/glove"
+            android:inputType="number"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#D69F4F"
+        android:text=" 확인하기"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+       />
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:gravity="start"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:background="#80E8D393"
+        />
+
+
+
+
+
+
+</LinearLayout>
