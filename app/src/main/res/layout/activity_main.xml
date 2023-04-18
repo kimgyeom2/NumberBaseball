@@ -30,14 +30,18 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="@drawable/glove"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="1"
+            android:minLines="1"/>
         <EditText
             android:id="@+id/et2"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="@drawable/glove"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="1"
+            android:minLines="1"/>
 
         <EditText
             android:id="@+id/et3"
@@ -45,7 +49,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:background="@drawable/glove"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="1"
+            android:minLines="1"/>
 
     </LinearLayout>
 
@@ -60,19 +66,21 @@
         android:textSize="30sp"
         android:textColor="@color/black"
        />
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80E8D393"
+        android:layout_margin="20dp">
     <TextView
         android:id="@+id/tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
         android:gravity="start"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:background="#80E8D393"
         />
 
-
+    </ScrollView>
 
 
 
