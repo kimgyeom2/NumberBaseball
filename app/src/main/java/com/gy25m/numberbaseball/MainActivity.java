@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                             builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    
+                                    finish();
                                 }
                             });
                             builder.show();
