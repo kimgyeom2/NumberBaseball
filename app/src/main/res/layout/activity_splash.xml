@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDECCA"
+    tools:context=".SplashActivity">
+
+
+    <ImageView
+        android:id="@+id/iv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_centerVertical="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number Baseball"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/cc"
+        android:textColor="#533C3C"
+        android:paddingTop="16dp"
+        android:textSize="40sp"
+        android:layout_alignTop="@id/iv2"/>
+</RelativeLayout>
