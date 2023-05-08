@@ -1,14 +1,20 @@
 package com.gy25m.numberbaseball;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +24,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     EditText et1,et2,et3;
+    ScrollView sv;
     Button btn;
     TextView tv,start;
     int com1,com2,com3;
@@ -49,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         et1=findViewById(R.id.et1);
         et2=findViewById(R.id.et2);
         et3=findViewById(R.id.et3);
+        sv=findViewById(R.id.sv);
         tv=findViewById(R.id.tv);
         start=findViewById(R.id.start);
         StringBuffer sb=new StringBuffer();
@@ -71,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        et1.addTextChangedListener(new TextWatcher() {
+        et2.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -81,6 +89,23 @@ public class MainActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 et2.clearFocus();
                 et3.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        et3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                et3.clearFocus();
+
             }
 
             @Override
@@ -105,20 +130,44 @@ public class MainActivity extends AppCompatActivity {
                         if (com1 == a2 || com3 == a2) ball++;
                         if (com3 == a3) st++;
                         if (com1 == a3 || com2 == a3) ball++;
-                        sb.append(st).append("스트라이크").append(ball).append("볼\n");
+                        sb.append(s1+s2+s3+"  ").append(st).append("스트라이크").append(ball).append("볼\n");
                         et1.setText("");
                         et2.setText("");
                         et3.setText("");
-                        tv.setText(sb.toString());
+                        tv.setText(sb);
 
-                        if (st == 3) start.setText("정답입니다!^^");
+                        if (st == 3) {
+                            start.setText("정답입니다!^^");
+                            AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+                            builder.setMessage("다시하시겠습니까?");
+                            builder.setPositiveButton("네", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Collections.shuffle(nums);
+                                    com1=nums.get(0);
+                                    com2=nums.get(1);
+                                    com3=nums.get(2);
+                                    sb.setLength(0);
+                                    start.setText("숫자야구 게임");
+                                    tv.setText("");
+                                }
+                            });
+                            builder.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    
+                                }
+                            });
+                            builder.show();
+                        }
                         st = 0;
                         ball = 0;
                     }else{
                         Toast.makeText(MainActivity.this, "모든 칸을 입력하세요", Toast.LENGTH_SHORT).show();
                     }
 
-
+                    Window window = getWindow();
+                    new WindowInsetsControllerCompat(window, window.getDecorView()).hide(WindowInsetsCompat.Type.ime());
                 }
 
             });
